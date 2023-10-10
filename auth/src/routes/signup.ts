@@ -12,9 +12,14 @@ router.post("/api/users/signup", [
         .withMessage("Password must be between 4 and 20 characters")
     ],
     (req: Request, res: Response) => {
-    const { email, password } = req.body;
-    if(!email || !password) {
-        res.status(400).send("You must provide an email and password");
+    const  errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        return res.status(400).send(errors.array());
     }
+    const { email, password } = req.body;
+
+    console.log("Creating a user...");
+
+    res.send({});
 });
 export { router as signupRouter };
