@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: shuweic227/auth
+          image: us.gcr.io/ticketing-dev-401418/auth
 
 ---
 apiVersion: v1
