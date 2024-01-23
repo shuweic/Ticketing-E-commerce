@@ -17,7 +17,7 @@ export const errorHandler = (
         return res.status(400).send({errors: formattedErrors});
     }
     if (err instanceof DatabaseConnectionError) {
-        console.log('Handling this error as a database connection error');
+        return res.status(500).send({errors: [{message: err.reason}]})
     }
 
     res.status(400).send({
