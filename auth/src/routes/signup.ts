@@ -33,8 +33,6 @@ router.post(
             throw new BadRequestError('Email in use');
         }
 
-        // Hash the password
-
 
         // Create the user
         const user = User.build({email, password});
